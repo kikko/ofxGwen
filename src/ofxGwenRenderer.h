@@ -197,7 +197,7 @@ public:
 		
 		ofxFontStash* font = (ofxFontStash*)(pFont->data);
 		
-		ofRectangle rect = font->getBoundingBoxSizeMultiLine(Utility::UnicodeToString(text), pFont->size * renderer->Scale(), 0, 0);
+		ofRectangle rect = font->getBoundingBoxSize(Utility::UnicodeToString(text), pFont->size * renderer->Scale(), 0, 0);
 		return Gwen::Point(rect.width + fabs(rect.x), rect.height);
 	}
 };

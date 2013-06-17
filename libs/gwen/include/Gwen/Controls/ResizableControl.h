@@ -33,6 +33,9 @@ namespace Gwen
 
 				virtual void SetMinimumSize( const Gwen::Point& minSize ) { m_MinimumSize = minSize; }
 				virtual Gwen::Point GetMinimumSize() { return m_MinimumSize; }
+            
+                virtual void SetMaximumSize( const Gwen::Point& maxSize ) { m_MaximumSize = maxSize; }
+                virtual Gwen::Point GetMaximumSize() { return m_MaximumSize; }
 
 				virtual void DisableResizing();
 
@@ -49,6 +52,7 @@ namespace Gwen
 				void OnResizedInternal( Controls::Base* pControl );
 
 				Gwen::Point m_MinimumSize;
+				Gwen::Point m_MaximumSize;
 				bool m_bClampMovement;
 				bool m_bResizable;
 

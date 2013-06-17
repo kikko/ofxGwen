@@ -17,6 +17,7 @@ GWEN_CONTROL_CONSTRUCTOR( ResizableControl )
 {
 	m_bResizable = true;
 	m_MinimumSize = Gwen::Point( 5, 5 );
+	m_MaximumSize = Gwen::Point( 99999, 99999 );
 	m_bClampMovement = false;
 
 	m_Resizer[5] = NULL;
@@ -87,10 +88,15 @@ void ResizableControl::DisableResizing()
 bool ResizableControl::SetBounds( int x, int y, int w, int h )
 {
 	Gwen::Point minSize = GetMinimumSize();
+	Gwen::Point maxSize = GetMaximumSize();
 
 	// Clamp Minimum Size
 	if ( w < minSize.x ) w = minSize.x;
 	if ( h < minSize.y ) h = minSize.y;
+    
+    // Clamp Maximum Size
+	if ( w > maxSize.x ) w = maxSize.x;
+	if ( h > maxSize.y ) h = maxSize.y;
 
 	// Clamp to parent's window
 	Base* pParent = GetParent();

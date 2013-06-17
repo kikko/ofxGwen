@@ -60,15 +60,24 @@ Gwen::Skin::Base* ofxGwen::createSkin(Gwen::Renderer::OpenGL *renderer, const st
 	}
 	else
 	{
+        this->skin_texture_path = skin_texture_path;
+        
 		Gwen::Skin::TexturedBase *textured = new Gwen::Skin::TexturedBase(renderer);
 		textured->Init(skin_texture_path);
-		textured->SetDefaultFont(Gwen::Utility::StringToUnicode(default_font), 11);
+		textured->SetDefaultFont(Gwen::Utility::StringToUnicode(default_font), 9);
 		
 		skin = textured;
 	}
 	
 	skin->SetRender(renderer);
 	return skin;
+}
+
+void ofxGwen::reloadSkin()
+{
+    if(skin_texture_path != "") {
+        ((Gwen::Skin::TexturedBase *)skin)->Init(skin_texture_path);
+    }
 }
 
 Gwen::Controls::Canvas* ofxGwen::createCanvas()

@@ -42,7 +42,11 @@ public:
 	void toggleView() { if (isVisible()) hide(); else show(); }
 	
 	inline bool isVisible() { return visible; }
-
+    
+    // utils
+    
+    void reloadSkin();
+    
 protected:
 
 	bool visible;
@@ -51,6 +55,8 @@ protected:
 	Gwen::Renderer::OpenGL *renderer;
 	Gwen::Skin::Base *skin;
 	Gwen::Controls::Canvas* canvas;
+    
+    string skin_texture_path;
 	
 	virtual Gwen::Renderer::OpenGL *createRenderer(bool use_truetype_font = true);
 	virtual Gwen::Skin::Base *createSkin(Gwen::Renderer::OpenGL *renderer, const string& default_font = "", const string& skin_texture_path = "");

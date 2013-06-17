@@ -108,7 +108,7 @@ namespace Gwen
 				virtual void Dock( int iDock );
 				virtual int GetDock();
 
-				virtual void RestrictToParent( bool restrict ) { m_bRestrictToParent = restrict; }
+				virtual void RestrictToParent( bool bRestrict ) { m_bRestrictToParent = bRestrict; }
 				virtual bool ShouldRestrictToParent() { return m_bRestrictToParent; }
 
 				virtual int X() const { return m_Bounds.x; }

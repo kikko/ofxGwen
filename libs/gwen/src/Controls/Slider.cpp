@@ -23,7 +23,6 @@ void SliderBar::Render( Skin::Base* skin )
 	skin->DrawSlideButton( this, IsDepressed(), IsHorizontal() );
 }
 
-
 GWEN_CONTROL_CONSTRUCTOR( Slider )
 {
 	SetBounds( Gwen::Rect( 0, 0, 32, 128) );
